@@ -2,11 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const loader = document.getElementById('loader');
     const newsSection = document.getElementById('news');
 
-    // Показываем загрузчик при старте
     loader.style.display = 'block';
     newsSection.style.display = 'none';
 
-    // Загружаем новости
+    // Загружаем обновленный файл news.json
     fetch('news.json')
         .then(response => response.json())
         .then(data => {
@@ -16,9 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
             data.forEach(news => {
                 const article = document.createElement('article');
                 article.innerHTML = `
-                    <h2>${news.title}</h2>
-                    <p>${news.excerpt}</p>
-                    <button onclick="viewNews('${news.id}')">Читать далее</button>
+                    <h2><a href="${news.link}" target="_blank">${news.title}</a></h2>
+                    <p>${news.description}</p>
+                    <p><small>${new Date(news.published_at).toLocaleDateString()}</small></p>
                 `;
                 newsSection.appendChild(article);
             });
@@ -29,22 +28,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 });
 
-// Поиск новостей по заголовкам
-function searchNews() {
-    const query = document.getElementById('search').value.toLowerCase();
-    const articles = document.querySelectorAll('article');
-
-    articles.forEach(article => {
-        const title = article.querySelector('h2').textContent.toLowerCase();
-        if (title.includes(query)) {
-            article.style.display = 'block';
-        } else {
-            article.style.display = 'none';
-        }
-    });
-}
-
-// Открытие полной новости
-function viewNews(id) {
-    window.location.href = `news.html?id=${id}`;
 }
