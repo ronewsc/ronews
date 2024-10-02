@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Свежие новости и обновления по Roblox. Узнайте обо всем первыми!">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ваш-домен.github.io/">
+    <title>Новости Roblox | Свежие обновления и гайды</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Подключаем шрифт Nunito -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Новости Roblox</h1>
+        <input type="text" id="search" placeholder="Поиск новостей..." oninput="searchNews()" />
+    </header>
+
+    <!-- Элемент загрузки -->
+    <div id="loader" class="lds-ellipsis">
+        <div></div><div></div><div></div><div></div>
+    </div>
+
+    <main>
+        <section id="news">
+            <!-- Список новостей будет загружаться здесь -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Новости Roblox. Все права защищены.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
